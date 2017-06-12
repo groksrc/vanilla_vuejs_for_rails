@@ -37,3 +37,23 @@ Now from the terminal you should be able to do `yarn compile` and see that it wo
 ## Fire up Rails
 `bundle exec rails server`
 Yay! You're on rails
+
+## Create a controller
+`rails g controller Home index`
+
+## Set `home#index` to the root
+In routes.rb you should add the root route beneath `get 'home/index'`:
+```
+Rails.application.routes.draw do
+  get 'home/index'
+
+  root 'home#index'
+end
+```
+
+## Set up `javascript_pack_tag`
+Inside app/views/home/index.html.erb include the following:
+`<%= javascript_pack_tag 'application' %>`
+
+This will include your application.js output on the page. Now we can start doing some vue.js!
+
