@@ -1,6 +1,9 @@
 {
   "name": "vanilla_vuejs_for_rails",
   "private": true,
+  "scripts": {
+    "compile": "NODE_ENV=development webpack"
+  },
   "dependencies": {
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
