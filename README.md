@@ -55,6 +55,13 @@ end
 Inside app/views/home/index.html.erb include the following:
 `<%= javascript_pack_tag 'application' %>`
 
-This will include your application.js output on the page. Now if you launch the browser and look in the console
-of development tools you should see the `console.log` statement from the default application.js.
+This will include your application.js output on the page.
+
+
+## Compile your javascript
+Run `yarn compile` to build your webpack code. This is placed in /public/packs by default
+
+## Fire up Rails
+Run `bundle exec rails server` and open to `localhost:3000`. You should have a blank page, but if you open
+development tools to the console you should see 'Hello World from Webpacker' from the `console.log` in application.js.
 
