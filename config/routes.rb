@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
   root 'home#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '*path', to: 'home#index', constraints: -> (request) { !request.xhr? && request.format.html? }
 end

@@ -41,13 +41,13 @@ Yay! You're on rails
 ## Create a controller
 `rails g controller Home index`
 
-## Set `home#index` to the root
+## Set `home#index` to the root and configure your spa (optional)
 In routes.rb you should add the root route beneath `get 'home/index'`:
 ```
 Rails.application.routes.draw do
-  get 'home/index'
-
   root 'home#index'
+
+  get '*path', to: 'home#index', constraints: -> (request) { !request.xhr? && request.format.html? }
 end
 ```
 
@@ -55,5 +55,6 @@ end
 Inside app/views/home/index.html.erb include the following:
 `<%= javascript_pack_tag 'application' %>`
 
-This will include your application.js output on the page. Now we can start doing some vue.js!
+This will include your application.js output on the page. Now if you launch the browser and look in the console
+of development tools you should see the `console.log` statement from the default application.js.
 
