@@ -65,3 +65,27 @@ Run `yarn compile` to build your webpack code. This is placed in /public/packs b
 Run `bundle exec rails server` and open to `localhost:3000`. You should have a blank page, but if you open
 development tools to the console you should see 'Hello World from Webpacker' from the `console.log` in application.js.
 
+Now we're ready to focus on Vue.js
+
+## Add an element for Vue to mount with
+Back inside app/views/home/index.html.erb add the following above the `javascript_pack_tag` helper:
+`<div id="app"></div>`
+
+Make sure you put the div for the app above the javascript. If you don't, Vue will not be happy
+
+## Update application.js to include the App
+Now change the application.js to this:
+```
+import Vue from 'vue'
+import App from './app.vue'
+
+const vm = new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+```
+
+You can optionally remove hello_vue.js, since it won't be doing anything.
+
+## Working with Vue.js
+At this point you can `yarn compile` and `bundle exec rails server` to see the result.
