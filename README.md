@@ -89,3 +89,17 @@ You can optionally remove hello_vue.js, since it won't be doing anything.
 
 ## Working with Vue.js
 At this point you can `yarn compile` and `bundle exec rails server` to see the result.
+
+Let's move the app.vue file from app/javascript/packs to a new directory named app/javascript/src
+
+`mkdir app/javascript/src && mv app/javascript/packs/app.vue app/javascript/src`
+
+Now update application.js to refer to the new location.
+
+```
+// application.js
+import App from '../src/app.vue'
+```
+
+
+
