@@ -98,7 +98,10 @@ export default {
   // http://vuejs.org/guide/computed.html
   computed: {
     filteredTodos: function () {
-      return filters[this.$route.params.filter || 'all'](this.todos);
+      if(filters[this.$route.params.filter]) {
+        return filters[this.$route.params.filter](this.todos)
+      }
+      return filters.all(this.todos);
     },
     remaining: function () {
       return filters.active(this.todos).length;
